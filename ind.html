@@ -4,15 +4,31 @@
     <head>
         <meta charset="UTF-8">
         <title>
-          Login 
+          Genome Annotation 
         </title>
         <!--link for css file -->
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="stylish.css">
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
 
     </head>
     <body>
-        <div class="loginbox">
+        <div class="full-page">
+            <!--navigation bar-->
+           <div class="navbar">
+               <div>
+                   <a href="website.html">Genome Annotation</a>
+               </div>
+               <nav>
+                   <ul id='MenuItems'>
+                       <li><a href="#">Home</a></li>
+                       <li><a href="#">Functionalities</a></li>
+                       <li><a href="#">Contact</a></li>
+                       <li><button class='loginbtn' onclick="document.getElementById('login-form').style.display='block'" style="width:auto">Login</button>
+                       </li>
+                   </ul>
+               </nav>
+           </div>
+           <div id='login-form' class="loginbox">
             <img src="login.jpg" class="avatar">
             <h1>Login Here </h1> </br>
             <form>
@@ -27,6 +43,8 @@
 
             </form>
 
+    
+        </div>
     
         </div>
 
