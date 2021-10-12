@@ -1,7 +1,7 @@
 -- #Création du schéma de tables
 -- #CREATE SCHEMA GeneDB;
 SET SCHEMA 'GeneDB';
-SET search_path TO genedb;
+--#SET search_path TO genedb; --#pcq mon postgres bugue
 
 -- #Création des types : TypeRole et Etat Annotation
 CREATE TYPE TypeRole AS ENUM ('lecteur', 'annotateur', 'validateur');
@@ -17,10 +17,13 @@ NumTel VARCHAR(20),
 Role TypeRole,
 Date Date,
 Heure VARCHAR(10),
-EtatAnnot VARCHAR(500),
-Commentaires VARCHAR(500),
-PRIMARY KEY (Email, Mdp, EtatAnnot, Commentaires));
+PRIMARY KEY (Email, Mdp));
 
+CREATE TABLE Annotation (
+EmailAnnot VARCHAR(500),
+EtatAnnot TypeAnnot,
+Commentaires VARCHAR(500),
+PRIMARY KEY(EmailAnnot, EtatAnnot, Commentaires));
 --#EmailAnnot != Email, faire une jointure des deux attributs dans les requêtes pour avoir la liste des mails des annotateurs ?
 --#Faire une clé étrangère sur emailannot ref Email ne marche pas  
 --Table annotation pour pas avoir trop de clés primaires dans Utilisateur ? 
@@ -34,8 +37,8 @@ EmailAnnot VARCHAR(500),
 EtatAnnot TypeAnnot,
 Commentaires VARCHAR(500),
 PRIMARY KEY (NomGenome, EmailAnnot, EtatAnnot, Commentaires),
-FOREIGN KEY (EmailAnnot, EtatAnnot,Commentaires) REFERENCES Utilisateur(Email, EtatAnnot, Commentaires));
---#ERROR:  there is no unique constraint matching given keys for referenced table "utilisateur"
+FOREIGN KEY (EmailAnnot, EtatAnnot,Commentaires) REFERENCES Annotation(EmailAnnot, EtatAnnot, Commentaires));
+--#VARCHAR(500) pour SeqNucl = pas suffisant !! Mais cb ? 
 
 -- #Création de la relation Gènes/Protéines
 CREATE TABLE Gene_Prot (
@@ -47,6 +50,4 @@ EmailAnnot VARCHAR(500),
 EtatAnnot TypeAnnot,
 Commentaires VARCHAR(500),
 PRIMARY KEY (NomGenProt, EmailAnnot, EtatAnnot, Commentaires),
-FOREIGN KEY (EmailAnnot, EtatAnnot, Commentaires) REFERENCES Utilisateur(Email, EtatAnnot, Commentaires));
---#ERROR:  there is no unique constraint matching given keys for referenced table "utilisateur"
-
+FOREIGN KEY (EmailAnnot, EtatAnnot, Commentaires) REFERENCES Annotation(EmailAnnot, EtatAnnot, Commentaires));

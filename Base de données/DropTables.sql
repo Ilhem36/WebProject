@@ -1,6 +1,7 @@
 --#Suppression des tables une par une dans l’ordre inverse de création
 DROP TABLE Gene_Prot;
 DROP TABLE Genome;
+DROP TABLE Annotation;
 DROP TABLE Utilisateur;
 
 --# Suppression des types nouvellement créés
