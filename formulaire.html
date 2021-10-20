@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="design.css">
+	</head>
+	<body>
+    <form action ="traitement.php" method ="post/get">
+        <p>
+          Remplissez ce formulaire:<br>
+          Espéce:
+      
+            <input type="text" name="Espéce">
+        </p>
+   
+       <p>
+       Séquence nucléotidique:
+     
+            <input type="text" name="Séquence">
+      </p>
+      <p>
+        Séquence peptidique:
+      
+             <input type="text" name="Séquence peptidique">
+       </p>
+              
+            <p>
+              Nom du géne:
+             <input type="text" name="Nom du géne"> <br>
+            </p>
+            <p>
+                Nom du transcrit:
+               <input type="text" name="Nom du transcrit"> <br>
+              </p>
+              Type de sortie attendue:
+      
+      <select name="requete">
+            <option value= "Prendre contacte">Génome</option>
+            <option value= "embaucher moi">Géne/Protéine</option>   
+         </select> <br>
+      
+         
+        
+    <label>Description:</label><br>
+         <textarea></textarea> <br>
+      
+    </form>
+    
+    <section>
+    </section>
+    
+         <form>
+           <!-- <label for="Quelle est votre CB?">
+              Quelle est votre CB?
+           </label>
+           <input type="text" list="cartes" name="cartes">
+              <datalist id="cartes">
+                     <option value= "GOLD">Gold</option>
+                    <option value= "Master card">Master card</option>
+                    <option value= "Visa classique">Visa classique</option>
+           </datalist> -->
+    </form>
+        <input type="submit" name="" value="Suivant" > </br>
+	</body>

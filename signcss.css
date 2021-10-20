@@ -62,6 +62,7 @@ form .user-details .input-box{
     border-bottom-width: 2px;
     transition: all 0.3 ease;
 }
+
 .user-details .input-box input:focus,
 .user-details .input-box input:valid{
     border-color: #9b59b6;
